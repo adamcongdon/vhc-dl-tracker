@@ -73,7 +73,7 @@ def start_program():
     csv_file = pd.read_csv('outfile')
     fig = px.scatter(csv_file, x="date", y="count", text="count")
     fig.update_traces(textposition="top left")
-    colors = {"background": "#FFFFFF", "text": "#1DA1F2"}
+    colors = {"background": "#1d6b5b", "text": "#54b948"}
     fig.update_layout(
         plot_bgcolor=colors["background"],
         paper_bgcolor=colors["background"],
@@ -97,11 +97,11 @@ def start_program():
         style={"backgroundColor": colors["background"]},
         children=[
             html.H1(
-                children="Downloads by Date",
+                children="vHC Downloads by Date",
                 style={"textAlign": "center", "color": colors["text"]},
             ),
             html.Div(
-                children="ExmpleText...",
+                children="This is a simple graph of total vHC downloads and daily downloads by date.",
                 style={"textAlign": "center", "color": colors["text"]},
             ),
             dcc.Graph(id="vHC-Downloads", figure=fig),
