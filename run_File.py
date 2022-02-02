@@ -1,7 +1,7 @@
-from cgitb import text
-from click import style
+#from cgitb import text
+#from click import style
 import dash
-from tenacity import retry_unless_exception_type
+#from tenacity import retry_unless_exception_type
 import dash_core_components as dcc
 import plotly.express as px
 import os
@@ -63,14 +63,14 @@ def start_program():
             print ("No data")
     today = datetime.today()
     td = datetime.today().strftime('%Y-%m-%d')
-    # if exists(outfile):
-    #     write_output(td, total_count)
-    # else:
-    #     init_output()
-    #     write_output(td,total_count)
+    if exists(outfile):
+        write_output(td, total_count)
+    else:
+        init_output()
+        write_output(td,total_count)
 
 
-    csv_file = pd.read_csv('../../outfile')
+    csv_file = pd.read_csv('outfile')
     fig = px.scatter(csv_file, x="date", y="count", text="count")
     fig.update_traces(textposition="top left")
     colors = {"background": "#FFFFFF", "text": "#1DA1F2"}

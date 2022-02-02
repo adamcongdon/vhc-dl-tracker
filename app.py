@@ -3,10 +3,10 @@
 #pip3 install requests
 #pip3 install pandas
 
-from cgitb import text
-from click import style
+#from cgitb import text
+#from click import style
 import dash
-from tenacity import retry_unless_exception_type
+#from tenacity import retry_unless_exception_type
 import dash_core_components as dcc
 import plotly.express as px
 import os
