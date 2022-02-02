@@ -25,10 +25,14 @@ from run_File import *
 
 
 
-while(True):
-    if __name__ == "__main__":
-        app = start_program()
-        app.run_server(debug=True)
-    print("sleeping..")
-    time.sleep(60)
-    print("starting...")
+# while(True):
+#     if __name__ == "__main__":
+#         app = start_program()
+#         app.run_server(debug=True)
+#     print("sleeping..")
+#     time.sleep(60)
+#     print("starting...")
+
+if __name__ == "__main__":
+    app = start_program()
+    app.run_server(debug=True)
