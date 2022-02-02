@@ -32,7 +32,7 @@ from run_File import *
 #     print("sleeping..")
 #     time.sleep(60)
 #     print("starting...")
+app = start_program()
 
 if __name__ == "__main__":
-    app = start_program()
     app.run_server(debug=True)
