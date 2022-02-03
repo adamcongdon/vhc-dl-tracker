@@ -96,7 +96,7 @@ def start_program():
     fig2.update_traces(textposition="top left",line_color='#54b948')
     fig2.update_layout(
         plot_bgcolor=colors["dark"],
-        paper_bgcolor=colors["background"],
+        paper_bgcolor=colors["background"],#
         font_color=colors["text"],
         title={},
             font=dict(color="white", family="Tahoma"),
