@@ -79,11 +79,11 @@ def start_program():
     #fig = px.scatter(csv_file, x="date", y="count", text="count")
     fig = px.bar(df, x="date", y="count", text="count")
     #fig.update_traces(textposition="top left")
-    colors = {"background": "#1d6b5b", "text": "#54b948"}
-    #fig.update_traces(textposition="center",marker_color='#54b948')
+    colors = {"background": "#1d6b5b", "text": "#54b948", "dark": "#005f4b"}
+    fig.update_traces(marker_color='#54b948')
     fig.update_layout(
         plot_bgcolor=colors["background"],
-        paper_bgcolor=colors["#005f4b"],
+        paper_bgcolor=colors["dark"],
         font_color=colors["text"],
     )
 
@@ -93,21 +93,21 @@ def start_program():
     fig2.update_traces(textposition="top left",line_color='#54b948')
     fig2.update_layout(
         plot_bgcolor=colors["background"],
-        paper_bgcolor=colors["background"],
+        paper_bgcolor=colors["dark"],
         font_color=colors["text"],
         
     )
 
     app.layout = html.Div(
-        style={"backgroundColor": colors["background"]},
+        style={"backgroundColor": colors["dark"]},
         children=[
             html.H1(
                 children="vHC Downloads by Date",
-                style={"textAlign": "center", "color": colors["text"]},
+                style={"textAlign": "center", "color": "white"},
             ),
             html.Div(
                 children="This is a simple graph of total vHC downloads and daily downloads by date.",
-                style={"textAlign": "center", "color": colors["text"]},
+                style={"textAlign": "center", "color": "white"},
             ),
             dcc.Graph(id="vHC-Downloads", figure=fig),
             dcc.Graph(id="DownloadsByDay", figure=fig2)
