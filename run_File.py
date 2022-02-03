@@ -77,9 +77,10 @@ def start_program():
     df['daily_count'] = df['count'].diff()
 
     #fig = px.scatter(csv_file, x="date", y="count", text="count")
-    fig = px.bar(df, x="date", y="count")
+    fig = px.bar(df, x="date", y="count", text="count")
     #fig.update_traces(textposition="top left")
     colors = {"background": "#1d6b5b", "text": "#54b948"}
+    fig.update_traces(textposition="center",marker_color='#54b948')
     fig.update_layout(
         plot_bgcolor=colors["background"],
         paper_bgcolor=colors["background"],
