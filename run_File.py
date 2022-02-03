@@ -73,7 +73,7 @@ def start_program():
 
     csv_file = pd.read_csv('outfile')
     df = pd.DataFrame(csv_file)
-    df = df.drop_duplicates(subset=None,keep='first',inplace=False)
+    df = df.drop_duplicates(subset="date",keep='last',inplace=False)
 
     df['daily_count'] = df['count'].diff()
 
