@@ -80,10 +80,10 @@ def start_program():
     fig = px.bar(df, x="date", y="count", text="count")
     #fig.update_traces(textposition="top left")
     colors = {"background": "#1d6b5b", "text": "#54b948"}
-    fig.update_traces(textposition="center",marker_color='#54b948')
+    #fig.update_traces(textposition="center",marker_color='#54b948')
     fig.update_layout(
         plot_bgcolor=colors["background"],
-        paper_bgcolor=colors["background"],
+        paper_bgcolor=colors["#005f4b"],
         font_color=colors["text"],
     )
 
