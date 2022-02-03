@@ -72,11 +72,12 @@ def start_program():
 
     csv_file = pd.read_csv('outfile')
     df = pd.DataFrame(csv_file)
+    df = df.drop_duplicates(subset=None,keep='first',inplace=False)
+
     df['daily_count'] = df['count'].diff()
-    df2 = df.drop_duplicates(subset=None,keep='first',inplace=False)
 
     #fig = px.scatter(csv_file, x="date", y="count", text="count")
-    fig = px.bar(df2, x="date", y="count")
+    fig = px.bar(df, x="date", y="count")
     #fig.update_traces(textposition="top left")
     colors = {"background": "#1d6b5b", "text": "#54b948"}
     fig.update_layout(
@@ -87,7 +88,7 @@ def start_program():
 
 
     
-    fig2 = px.line(df2, x="date", y="daily_count", markers=True, text="daily_count")
+    fig2 = px.line(df, x="date", y="daily_count", markers=True, text="daily_count")
     fig2.update_traces(textposition="top left",line_color='#54b948')
     fig2.update_layout(
         plot_bgcolor=colors["background"],
