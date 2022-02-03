@@ -84,7 +84,7 @@ def start_program():
 
     df = pd.DataFrame(csv_file)
     df['daily_count'] = df['count'].diff()
-
+    df.drop_duplicates(subset=None,keep='first',inplace=False)
     fig2 = px.line(df, x="date", y="daily_count", markers=True, text="daily_count")
     fig2.update_traces(textposition="top left")
     fig2.update_layout(
