@@ -1,5 +1,6 @@
 #from cgitb import text
 #from click import style
+from tkinter import font
 import dash
 #from tenacity import retry_unless_exception_type
 import dash_core_components as dcc
@@ -77,29 +78,32 @@ def start_program():
     df['daily_count'] = df['count'].diff()
 
     #fig = px.scatter(csv_file, x="date", y="count", text="count")
-    fig = px.bar(df, x="date", y="count", text="count")
+    fig = px.bar(df, x="date", y="count", text="count", title="Cumulative Downloads by Day")
     #fig.update_traces(textposition="top left")
     colors = {"background": "#1d6b5b", "text": "#54b948", "dark": "#005f4b"}
     fig.update_traces(marker_color='#54b948')
     fig.update_layout(
-        plot_bgcolor=colors["background"],
-        paper_bgcolor=colors["dark"],
+        plot_bgcolor=colors["dark"],
+        paper_bgcolor=colors["background"],
         font_color=colors["text"],
+        title={},
+            font=dict(color="white", family="Tahoma"),
     )
 
 
     
-    fig2 = px.line(df, x="date", y="daily_count", markers=True, text="daily_count")
+    fig2 = px.line(df, x="date", y="daily_count", markers=True, text="daily_count", title="Daily Download Count")
     fig2.update_traces(textposition="top left",line_color='#54b948')
     fig2.update_layout(
-        plot_bgcolor=colors["background"],
-        paper_bgcolor=colors["dark"],
+        plot_bgcolor=colors["dark"],
+        paper_bgcolor=colors["background"],
         font_color=colors["text"],
-        
+        title={},
+            font=dict(color="white", family="Tahoma"),
     )
 
     app.layout = html.Div(
-        style={"backgroundColor": colors["dark"]},
+        style={"backgroundColor": colors["background"]},
         children=[
             html.H1(
                 children="vHC Downloads by Date",
