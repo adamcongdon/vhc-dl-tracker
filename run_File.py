@@ -71,8 +71,9 @@ def start_program():
 
 
     csv_file = pd.read_csv('outfile')
-    fig = px.bar(csv_file, x="date", y="count", text="count")
-    fig.update_traces(textposition="top left")
+    #fig = px.scatter(csv_file, x="date", y="count", text="count")
+    fig = px.bar(csv_file, x="date", y="count")
+    #fig.update_traces(textposition="top left")
     colors = {"background": "#1d6b5b", "text": "#54b948"}
     fig.update_layout(
         plot_bgcolor=colors["background"],
