@@ -1,6 +1,6 @@
 #from cgitb import text
 #from click import style
-from tkinter import font
+#from tkinter import font
 import dash
 #from tenacity import retry_unless_exception_type
 import dash_core_components as dcc
