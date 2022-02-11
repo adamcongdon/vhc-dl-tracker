@@ -2,7 +2,7 @@
 
 FROM python
 
-WORKDIR /the/workdir/path
+WORKDIR /
 
 COPY requirements.txt requirements.txt
 

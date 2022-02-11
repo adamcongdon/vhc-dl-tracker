@@ -18,7 +18,7 @@ from datetime import date
 import time
 
 search_url = "https://api.github.com/repos/veeamhub/veeam-healthcheck/releases"
-outfile = 'outfile'
+outfile = '/app/outfile'
 
 app = dash.Dash(external_stylesheets=[dbc.themes.JOURNAL])
 server = app.server
@@ -33,13 +33,13 @@ def get_date():
 
 def write_output(today, total_count):
     data=[today, total_count]
-    with open(r'outfile', 'a') as f:
+    with open(r'/app/outfile', 'a') as f:
         writer = csv.writer(f)
         writer.writerow(data)
 
 def init_output():
     fields=['date','count']
-    with open(r'outfile', 'x') as f:
+    with open(r'/app/outfile', 'x') as f:
         writer = csv.writer(f)
         writer.writerow(fields)
 
@@ -71,7 +71,7 @@ def start_program():
         write_output(td,total_count)
 
 
-    csv_file = pd.read_csv('outfile')
+    csv_file = pd.read_csv('/app/outfile')
     df = pd.DataFrame(csv_file)
     df = df.drop_duplicates(subset="date",keep='last',inplace=False)
 
